@@ -73,15 +73,16 @@ class App extends React.Component {
     ret = axios.get(url);
 
     ret.then((response)=>{
-        console.log(response);
       this.setState({sentimentOutput:<EmotionTable emotions={response.data}/>});
   });
   }
   
-
+ componentDidMount() {
+    document.title = 'Sentiment Analyzer';
+  }
   render() {
     return (  
-      <div className="App">
+       <div className="App">
       <button className="btn btn-info" onClick={this.renderTextArea}>Text</button>
         <button className="btn btn-dark"  onClick={this.renderTextBox}>URL</button>
         <br/><br/>
